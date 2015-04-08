@@ -113,9 +113,7 @@ public class MainActivity extends LifecycleLoggingActivity {
             // DownloadImageActivity.
             // @@ TODO - you fill in here.
 
-            Uri downloadImageUri = Uri.parse(mUrlEditText.getText().toString());
-
-            Intent downloadImageIntent = makeDownloadImageIntent(downloadImageUri);
+            Intent downloadImageIntent = makeDownloadImageIntent(getUrl());
 
 
             // Start the Activity associated with the Intent, which
