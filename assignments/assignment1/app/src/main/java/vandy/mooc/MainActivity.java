@@ -170,7 +170,7 @@ public class MainActivity extends LifecycleLoggingActivity {
             // @@ TODO -- you fill in here, replacing true with the right
             // code.
             else if (resultCode != RESULT_OK) {
-                Toast.makeText(MainActivity.this, R.string.download_image_failed, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Error. URL is not valid", Toast.LENGTH_LONG).show();
             }
         }
     }
