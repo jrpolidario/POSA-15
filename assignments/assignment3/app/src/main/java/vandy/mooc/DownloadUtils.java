@@ -27,17 +27,17 @@ public class DownloadUtils {
      * Used for debugging.
      */
     private final static String TAG = "DownloadUtils";
-
+    
     /**
      * If you have access to a stable Internet connection for testing
      * purposes, feel free to change this variable to false so it
      * actually downloads the image from a remote server.
      */
     static final boolean DOWNLOAD_OFFLINE = false;
-
+    
     /**
      * The resource that we write to the file system in offline
-     * mode.
+     * mode. 
      */
     static final int OFFLINE_TEST_IMAGE = R.raw.dougs;
 
@@ -46,7 +46,7 @@ public class DownloadUtils {
      * mode.
      */
     static final String OFFLINE_FILENAME = "dougs.jpg";
-
+    
     /**
      * Download the image located at the provided Internet url using
      * the URL class, store it on the android file system using a
@@ -55,7 +55,7 @@ public class DownloadUtils {
      *
      * @param context	the context in which to write the file.
      * @param url       the web url.
-     *
+     * 
      * @return          the absolute path to the downloaded image file on the file system.
      */
     public static Uri downloadImage(Context context,
@@ -79,7 +79,7 @@ public class DownloadUtils {
                 inputStream =
                     context.getResources().openRawResource(OFFLINE_TEST_IMAGE);
                 filename = OFFLINE_FILENAME;
-
+                
             // Otherwise, download the file requested by the user.
             } else {
                 // Download the contents at the URL, which should
@@ -91,7 +91,7 @@ public class DownloadUtils {
 
             // Create an output file and save the image into it.
             return DownloadUtils.createDirectoryAndSaveFile
-                (context,
+                (context, 
                  inputStream,
                  filename);
         } catch (Exception e) {
@@ -101,7 +101,7 @@ public class DownloadUtils {
             return null;
         }
     }
-
+        
     /**
      * Decode an InputStream into a Bitmap and store it in a file on
      * the device.
@@ -109,7 +109,7 @@ public class DownloadUtils {
      * @param context	   the context in which to write the file.
      * @param inputStream  the Input Stream.
      * @param fileName     name of the file.
-     *
+     * 
      * @return          the absolute path to the downloaded image file on the file system.
      */
     private static Uri createDirectoryAndSaveFile(Context context,
@@ -130,7 +130,7 @@ public class DownloadUtils {
             newDirectory.mkdirs();
         }
 
-        File file = new File(directory,
+        File file = new File(directory, 
                              getTemporaryFilename(fileName));
         if (file.exists())
             file.delete();
@@ -164,24 +164,24 @@ public class DownloadUtils {
                    file.getName().toLowerCase(Locale.US));
         values.put("_data",
                    absolutePathToImage);
-
-        ContentResolver cr =
+        
+        ContentResolver cr = 
             context.getContentResolver();
 
         // Store the metadata for the image into the Gallery.
-        cr.insert(Images.Media.EXTERNAL_CONTENT_URI,
+        cr.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                   values);
 
         Log.d(TAG,
-              "absolute path to image file is "
+              "absolute path to image file is " 
               + absolutePathToImage);
-
+            
         return Uri.parse(absolutePathToImage);
     }
 
     /**
      * This method checks if we can write image to external storage
-     *
+     * 
      * @return true if an image can be written, and false otherwise
      */
     private static boolean isExternalStorageWritable() {
@@ -191,7 +191,7 @@ public class DownloadUtils {
 
     /**
      * Create a temporary filename to store the result of a download.
-     *
+     * 
      * @param url Name of the URL.
      * @return String containing the temporary filename.
      */
