@@ -7,16 +7,12 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
-
-import vandy.mooc.DownloadImageActivity;
 
 /**
  * A main Activity that prompts the user for a URL to an image and
@@ -153,7 +149,7 @@ public class MainActivity extends LifecycleLoggingActivity {
                 // file.
                 // @@ TODO -- you fill in here.
 
-                String downloadedImagePath = data.getStringExtra(DownloadImageActivity.DOWNLOAD_IMAGE_PATH_CODE);
+                String downloadedImagePath = data.getStringExtra(DownloadAndFilterImageActivity.DOWNLOAD_IMAGE_PATH_CODE);
 
                 Intent galleryIntent = makeGalleryIntent(downloadedImagePath);
 
@@ -201,7 +197,7 @@ public class MainActivity extends LifecycleLoggingActivity {
         // TODO -- you fill in here, replacing "null" with the proper
         // code.
 
-        Intent downloadImageIntent = new Intent(MainActivity.this, DownloadImageActivity.class);
+        Intent downloadImageIntent = new Intent(MainActivity.this, DownloadAndFilterImageActivity.class);
         downloadImageIntent.setData(url);
 
         return downloadImageIntent;

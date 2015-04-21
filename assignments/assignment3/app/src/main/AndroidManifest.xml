@@ -26,7 +26,7 @@
     </activity>
 
     <activity 
-       android:name=".DownloadImageActivity"
+       android:name=".DownloadAndFilterImageActivity"
        android:label="@string/download_image_activity">
       <intent-filter>
         <action android:name="android.intent.action.WEB_SEARCH" />
