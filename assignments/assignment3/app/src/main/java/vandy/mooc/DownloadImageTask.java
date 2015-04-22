@@ -29,7 +29,7 @@ public class DownloadImageTask extends AsyncTask<Uri, Integer, Uri>{
     // Runs in context where it is constructed
     @Override
     protected void onPostExecute(Uri downloadedImage) {
-
+        // After download has finished, then filter the image through FilterImageTask
         FilterImageTask filterImageTask = new FilterImageTask(mActivity);
         filterImageTask.execute(downloadedImage);
     }

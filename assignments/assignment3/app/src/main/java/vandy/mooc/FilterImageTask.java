@@ -21,7 +21,7 @@ public class FilterImageTask extends AsyncTask<Uri, Integer, Uri>{
     // Runs in background
     @Override
     protected Uri doInBackground(Uri... downloadedImage) {
-        // Filter image. Returns the local storage image uri / path of the filter image
+        // Filter image. Returns the local storage image uri / path of the filtered image
         Uri filteredImage = grayScaleFilter(mActivity.getApplicationContext(), downloadedImage[0]);
         return filteredImage;
     }
@@ -29,6 +29,10 @@ public class FilterImageTask extends AsyncTask<Uri, Integer, Uri>{
     // Runs in context where it is constructed
     @Override
     protected void onPostExecute(Uri filteredImage) {
+        /*
+         * After image has been filtered, set result for the Activity and put the downloaded and filtered
+         * image path into the result's bundled extra
+         */
         int result;
         Intent intent = new Intent();
 

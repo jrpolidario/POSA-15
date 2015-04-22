@@ -1,22 +1,14 @@
 package vandy.mooc;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-
-import vandy.mooc.Utils;
-
-import static vandy.mooc.Utils.downloadImage;
 
 /**
  * An Activity that downloads an image, stores it in a local file on
  * the local device, and returns a Uri to the image file.
  */
-public class DownloadAndFilterImageActivity extends Activity {
+public class DownloadAndFilterImageActivity extends LifecycleLoggingActivity implements DownloadAndFilterImageRetainedFragment.TaskCallbacks {
     /**
      * Debugging tag used by the Android logger.
      */
@@ -24,7 +16,11 @@ public class DownloadAndFilterImageActivity extends Activity {
 
     private Uri url;
 
+    private DownloadAndFilterImageRetainedFragment mDownloadAndFilterImageRetainedFragment;
+
     final static String DOWNLOAD_IMAGE_PATH_CODE = "downloadedImagePath";
+    final static String RETAINED_FRAGMENT_TAG = "retained_fragment";
+    final static String FRAGMENT_URL_PARAMS_TAG = "fragment_url_params";
 
     /**
      * Hook method called when a new instance of Activity is created.
@@ -41,22 +37,42 @@ public class DownloadAndFilterImageActivity extends Activity {
 
         super.onCreate(savedInstanceState);
 
-        // Get the URL associated with the Intent data.
-        // @@ TODO -- you fill in here.
+        FragmentManager fm = getFragmentManager();
+        mDownloadAndFilterImageRetainedFragment = (DownloadAndFilterImageRetainedFragment) fm.findFragmentByTag(RETAINED_FRAGMENT_TAG);
 
-        Intent intent = getIntent();
+        // If the Fragment is non-null, then it is currently being
+        // retained across a configuration change.
+        if (mDownloadAndFilterImageRetainedFragment == null) {
+            Uri uri = getIntent().getData();
 
+            Bundle args = new Bundle();
+            args.putString(FRAGMENT_URL_PARAMS_TAG, uri.toString());
 
-        if (null != intent) {
-            url = intent.getData();
+            mDownloadAndFilterImageRetainedFragment = new DownloadAndFilterImageRetainedFragment();
+            mDownloadAndFilterImageRetainedFragment.setArguments(args);
+
+            fm.beginTransaction().add(mDownloadAndFilterImageRetainedFragment, RETAINED_FRAGMENT_TAG).commit();
         }
+    }
 
-        // Download the image in the background, create an Intent that
-        // contains the path to the image file, and set this as the
-        // result of the Activity.
+    @Override
+    public void onPreExecute() {
 
-        DownloadImageTask downloadImageTask = new DownloadImageTask(this);
-        downloadImageTask.execute(url);
+    }
+
+    @Override
+    public void onProgressUpdate(int percent) {
+
+    }
+
+    @Override
+    public void onCancelled() {
+
+    }
+
+    @Override
+    public void onPostExecute() {
+
     }
 }
 
