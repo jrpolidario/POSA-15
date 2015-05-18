@@ -1,20 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-<<<<<<< HEAD
-    buildToolsVersion "21.1.2"
-
-    defaultConfig {
-        applicationId "vandy.mooc"
-        minSdkVersion 21
-=======
+    compileSdkVersion 21
     buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "vandy.mooc"
         minSdkVersion 19
->>>>>>> 9c6c68150438a1fbd35834a59e63064f12a16ae3
         targetSdkVersion 22
     }
 

@@ -1,16 +1,9 @@
 <resources>
     <string name="app_name">DownloadImageViewer</string>
     <string name="download_image_activity">DownLoadImageActivity</string>
-<<<<<<< HEAD
-    <string name="download_image">Download Image</string>
-    <string name="defaultURL">http://www.dre.vanderbilt.edu/~schmidt/robot.png</string>
-    <string name="enter_url">Enter URL</string>
-    <string name="download_image_failed">Error. Either URL is not a valid image or download failed</string>
-=======
     <string name="download_and_display_image">Download and Display Image(s)</string>
     <string name="add_url">Add URL</string>
     <string name="enter_url">Enter URL</string>
     <string name="clear_directory">Delete Downloaded Image(s)</string>
     <string name="defaultURL">http://www.dre.vanderbilt.edu/~schmidt/robot.png;http://www.dre.vanderbilt.edu/~schmidt/ka.png</string>
->>>>>>> 9c6c68150438a1fbd35834a59e63064f12a16ae3
 </resources>

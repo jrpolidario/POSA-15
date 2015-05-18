@@ -20,6 +20,7 @@ so manually move them:
 * .idea/vcs.xml
 * .idea/workspace.xml
 * app/
+* app/app.iml
 * app/build.gradle
 * app/src/
 * app/src/main/
@@ -27,15 +28,6 @@ so manually move them:
 * app/src/main/java/
 * app/src/main/java/vandy/
 * app/src/main/java/vandy/mooc/
-<<<<<<< HEAD
-* app/src/main/java/vandy/mooc/DownloadImageActivity.java
-* app/src/main/java/vandy/mooc/DownloadUtils.java
-* app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java
-* app/src/main/java/vandy/mooc/MainActivity.java
-* app/src/main/res/
-* app/src/main/res/layout/
-* app/src/main/res/layout/main_activity.xml
-=======
 * app/src/main/java/vandy/mooc/activities/
 * app/src/main/java/vandy/mooc/activities/DisplayImagesActivity.java
 * app/src/main/java/vandy/mooc/activities/LifecycleLoggingActivity.java
@@ -54,18 +46,19 @@ so manually move them:
 * app/src/main/res/layout/activity_result.xml
 * app/src/main/res/layout/main_activity.xml
 * app/src/main/res/layout/result_button.xml
->>>>>>> 9c6c68150438a1fbd35834a59e63064f12a16ae3
-* app/src/main/res/raw/
-* app/src/main/res/raw/dougs.jpg
 * app/src/main/res/values/
 * app/src/main/res/values/strings.xml
 * build.gradle
+* build/
+* build/intermediates/
+* build/intermediates/model_data.bin
 * gradle/
 * gradle/wrapper/
 * gradle/wrapper/gradle-wrapper.jar
 * gradle/wrapper/gradle-wrapper.properties
 * gradlew
 * gradlew.bat
+* import-summary.txt
 * index.html
 * settings.gradle
 
