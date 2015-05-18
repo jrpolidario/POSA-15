@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     android:orientation="vertical"
     android:layout_height="match_parent" 
     android:layout_width="match_parent">
@@ -10,12 +11,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:text="@string/defaultURL" />
+=======
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" > 
+>>>>>>> 9c6c68150438a1fbd35834a59e63064f12a16ae3
 
     <EditText
         android:id="@+id/url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+<<<<<<< HEAD
         android:inputType="text|textMultiLine|textUri"
         android:hint="@string/enter_url"
         android:ems="10" >
@@ -28,5 +35,53 @@
         android:layout_marginTop="18dp"
         android:onClick="downloadImage"
         android:text="@string/download_image" />
+=======
+        android:ems="10"
+        android:hint="@string/enter_url"
+        android:inputType="text|textMultiLine|textUri" >
+    </EditText>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addUrl"
+        android:text="@string/add_url" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.84"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <ProgressBar
+      android:id="@+id/progressBar_loading"
+      style="@android:style/Widget.ProgressBar.Large"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/button1"
+      android:visibility="invisible" 
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/url"
+        android:layout_below="@+id/url"
+        android:layout_marginTop="18dp"
+        android:onClick="downloadImages"
+        android:text="@string/download_and_display_image" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="deleteDownloadedImages"
+        android:text="@string/clear_directory" />
+>>>>>>> 9c6c68150438a1fbd35834a59e63064f12a16ae3
 
 </LinearLayout>

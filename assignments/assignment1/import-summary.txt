@@ -27,6 +27,7 @@ so manually move them:
 * app/src/main/java/
 * app/src/main/java/vandy/
 * app/src/main/java/vandy/mooc/
+<<<<<<< HEAD
 * app/src/main/java/vandy/mooc/DownloadImageActivity.java
 * app/src/main/java/vandy/mooc/DownloadUtils.java
 * app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java
@@ -34,6 +35,26 @@ so manually move them:
 * app/src/main/res/
 * app/src/main/res/layout/
 * app/src/main/res/layout/main_activity.xml
+=======
+* app/src/main/java/vandy/mooc/activities/
+* app/src/main/java/vandy/mooc/activities/DisplayImagesActivity.java
+* app/src/main/java/vandy/mooc/activities/LifecycleLoggingActivity.java
+* app/src/main/java/vandy/mooc/activities/MainActivity.java
+* app/src/main/java/vandy/mooc/operations/
+* app/src/main/java/vandy/mooc/operations/ImageOps.java
+* app/src/main/java/vandy/mooc/services/
+* app/src/main/java/vandy/mooc/services/DownloadImageService.java
+* app/src/main/java/vandy/mooc/utils/
+* app/src/main/java/vandy/mooc/utils/RetainedFragmentManager.java
+* app/src/main/java/vandy/mooc/utils/ServiceResult.java
+* app/src/main/java/vandy/mooc/utils/ServiceResultHandler.java
+* app/src/main/java/vandy/mooc/utils/Utils.java
+* app/src/main/res/
+* app/src/main/res/layout/
+* app/src/main/res/layout/activity_result.xml
+* app/src/main/res/layout/main_activity.xml
+* app/src/main/res/layout/result_button.xml
+>>>>>>> 9c6c68150438a1fbd35834a59e63064f12a16ae3
 * app/src/main/res/raw/
 * app/src/main/res/raw/dougs.jpg
 * app/src/main/res/values/
