@@ -53,30 +53,42 @@ public class DownloadImageService extends IntentService {
      * to store a downloaded image.
      */
     private static final String DIRECTORY_PATHNAME = "DIRECTORY_PATHNAME";
-    
+
     public DownloadImageService() {
-    	super("DownloadImageService");
+        super("DownloadImageService");
     }
 
     /**
      * Factory method that returns an Intent for downloading an image.
      */
     public static Intent makeIntent(Context context,
-                                    int requestCode, 
+                                    int requestCode,
                                     Uri url,
                                     String directoryPathname,
                                     Handler downloadHandler) {
         // Create an intent that will download the image from the web.
-    	// TODO -- you fill in here, replacing "null" with the proper
-    	// code, which involves (1) setting the URL as "data" to the
-    	// intent, (2) putting the request code as an "extra" to the
-    	// intent, (3) creating and putting a Messenger as an "extra"
-    	// to the intent so the DownloadImageService can send the path
-    	// to the image file back to the MainActivity, and (3) putting
-    	// the directory pathname as an "extra" to the intent
+        // TODO -- you fill in here, replacing "null" with the proper
+        // code, which involves (1) setting the URL as "data" to the
+        // intent, (2) putting the request code as an "extra" to the
+        // intent, (3) creating and putting a Messenger as an "extra"
+        // to the intent so the DownloadImageService can send the path
+        // to the image file back to the MainActivity, and (3) putting
+        // the directory pathname as an "extra" to the intent
         // to tell the Service where to place the image within
         // external storage.
-        return null;
+
+        Intent downloadImageServiceIntent = new Intent(context, DownloadImageService.class);
+        // (1)
+        downloadImageServiceIntent.setData(url);
+        // (2)
+        downloadImageServiceIntent.putExtra(REQUEST_CODE, requestCode);
+        // (3)
+        Messenger serviceMessenger = new Messenger(downloadHandler);
+        downloadImageServiceIntent.putExtra(MESSENGER, serviceMessenger);
+        // (4)
+        downloadImageServiceIntent.putExtra(DIRECTORY_PATHNAME, directoryPathname);
+
+        return downloadImageServiceIntent;
     }
 
     /**
@@ -90,10 +102,10 @@ public class DownloadImageService extends IntentService {
     }
 
     public static int getResultCode(Message message) {
-      // Check to see if the download succeeded.
-      return message.arg1;
+        // Check to see if the download succeeded.
+        return message.arg1;
     }
-    
+
     /**
      * Helper method that returns the request code associated with
      * the @a message.
@@ -128,35 +140,53 @@ public class DownloadImageService extends IntentService {
         // Get the URL associated with the Intent data.
         // @@ TODO -- you fill in here.
 
+        Uri url = intent.getData();
+
         // Get the directory pathname where the image will be stored.
         // @@ TODO -- you fill in here.
 
+        String directoryPathname = intent.getStringExtra(DIRECTORY_PATHNAME);
+
         // Download the requested image.
         // @@ TODO -- you fill in here.
+
+        Uri pathToImageFile = Utils.downloadImage(this, url, directoryPathname);
 
         // Extract the Messenger stored as an extra in the
         // intent under the key MESSENGER.
         // @@ TODO -- you fill in here.
 
+        Messenger clientMessenger = (Messenger) intent.getParcelableExtra(MESSENGER);
+
         // Send the path to the image file back to the
         // MainActivity via the messenger.
         // @@ TODO -- you fill in here.
+
+        sendPath(clientMessenger, pathToImageFile, url);
     }
 
     /**
      * Send the pathname back to the MainActivity via the
      * messenger.
      */
-    private void sendPath(Messenger messenger, 
+    private void sendPath(Messenger messenger,
                           Uri pathToImageFile,
                           Uri url) {
         // Call the makeReplyMessage() factory method to create
         // Message.
         // @@ TODO -- you fill in here.
-        
-            // Send the path to the image file back to the
-            // MainActivity.
-            // @@ TODO -- you fill in here.
+
+        Message replyMessage = makeReplyMessage(pathToImageFile, url);
+
+        // Send the path to the image file back to the
+        // MainActivity.
+        // @@ TODO -- you fill in here.
+
+        try {
+            messenger.send(replyMessage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -171,20 +201,41 @@ public class DownloadImageService extends IntentService {
         // Create a new Bundle to handle the result.
         // @@ TODO -- you fill in here.
 
+        Bundle bundle = new Bundle();
+
         // Put the URL to the image file into the Bundle via the
         // IMAGE_URL key.
         // @@ TODO -- you fill in here.
+
+        bundle.putString(IMAGE_URL, url.toString());
 
         // Return the result to indicate whether the download
         // succeeded or failed.
         // @@ TODO -- you fill in here.
 
+        int resultCode;
+
+        if (null == pathToImageFile)
+            // If download failed
+            resultCode = Activity.RESULT_CANCELED;
+        else
+            // Else if download successful
+            resultCode = Activity.RESULT_OK;
+
         // Put the path to the image file into the Bundle via the
         // IMAGE_PATHNAME key only if the download succeeded.
         // @@ TODO -- you fill in here.
 
+        if (resultCode == Activity.RESULT_OK) {
+            bundle.putString(IMAGE_PATHNAME, pathToImageFile.toString());
+        }
+
         // Set the Bundle to be the data in the message.
         // @@ TODO -- you fill in here.
+
+        message.arg1 = resultCode;
+
+        message.setData(bundle);
 
         return message;
     }
