@@ -96,7 +96,7 @@ public class ImageOpsBoundService extends ImageOpsImpl {
             // user.  
             // DONE - you fill in here.
 
-            Intent DownloadImagesBoundServiceIntent = DownloadImagesBoundService.makeIntent(mActivity.get());
+            final Intent DownloadImagesBoundServiceIntent = DownloadImagesBoundService.makeIntent(mActivity.get());
 
             Log.d(TAG, "calling bindService()");
 
