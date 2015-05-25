@@ -4,6 +4,8 @@ import vandy.mooc.activities.MainActivity;
 import vandy.mooc.services.DownloadImagesBoundService;
 import vandy.mooc.utils.RequestMessage;
 import vandy.mooc.utils.Utils;
+
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -52,6 +54,8 @@ public class ImageOpsBoundService extends ImageOpsImpl {
                 // returned IBinder object and store it for later use
                 // in mRequestMessengerRef.
                 // TODO -- you fill in here.
+
+                mRequestMessengerRef = new Messenger(binder);
             }
 
             /**
@@ -65,6 +69,8 @@ public class ImageOpsBoundService extends ImageOpsImpl {
                 // null, thereby preventing send() calls until it's
                 // reconnected.
                 // TODO -- you fill in here.
+
+                mRequestMessengerRef = null;
             }
 	};
 
@@ -90,10 +96,14 @@ public class ImageOpsBoundService extends ImageOpsImpl {
             // user.  
             // TODO - you fill in here.
 
+            Intent DownloadImagesBoundServiceIntent = DownloadImagesBoundService.makeIntent(mActivity.get());
+
             Log.d(TAG, "calling bindService()");
 
             // Bind to the Service associated with the Intent.
             // TODO -- you fill in here.
+
+            mActivity.get().bindService(DownloadImagesBoundServiceIntent, mServiceConnection, Activity.BIND_AUTO_CREATE);
         }
     }
 
@@ -107,9 +117,13 @@ public class ImageOpsBoundService extends ImageOpsImpl {
             // Unbind from the Service.
             // TODO -- you fill in here.
 
+            mActivity.get().unbindService(mServiceConnection);
+
             // Set this field to null to trigger a call to
             // bindService() next time bindService() is called.
             // TODO -- you fill in here.
+
+            mRequestMessengerRef = null;
         }
     }
 
@@ -140,6 +154,8 @@ public class ImageOpsBoundService extends ImageOpsImpl {
 
                 // Send the request Message to the DownloadService.
                 // TODO -- you fill in here.
+
+                mRequestMessengerRef.send(requestMessage.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
             }
