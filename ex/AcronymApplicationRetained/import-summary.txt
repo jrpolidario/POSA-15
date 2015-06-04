@@ -1,0 +1,104 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .idea/
+* .idea/.name
+* .idea/AcronymApplicationRetained.iml
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/encodings.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/scopes/
+* .idea/scopes/scope_settings.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* app/
+* app/build.gradle
+* app/src/
+* app/src/main/
+* app/src/main/AndroidManifest.xml
+* app/src/main/aidl/
+* app/src/main/aidl/vandy/
+* app/src/main/aidl/vandy/mooc/
+* app/src/main/aidl/vandy/mooc/aidl/
+* app/src/main/aidl/vandy/mooc/aidl/AcronymCall.aidl
+* app/src/main/aidl/vandy/mooc/aidl/AcronymData.aidl
+* app/src/main/aidl/vandy/mooc/aidl/AcronymRequest.aidl
+* app/src/main/aidl/vandy/mooc/aidl/AcronymResults.aidl
+* app/src/main/java/
+* app/src/main/java/vandy/
+* app/src/main/java/vandy/mooc/
+* app/src/main/java/vandy/mooc/activities/
+* app/src/main/java/vandy/mooc/activities/LifecycleLoggingActivity.java
+* app/src/main/java/vandy/mooc/activities/MainActivity.java
+* app/src/main/java/vandy/mooc/aidl/
+* app/src/main/java/vandy/mooc/aidl/AcronymData.java
+* app/src/main/java/vandy/mooc/jsonacronym/
+* app/src/main/java/vandy/mooc/jsonacronym/AcronymJSONParser.java
+* app/src/main/java/vandy/mooc/jsonacronym/JsonAcronym.java
+* app/src/main/java/vandy/mooc/operations/
+* app/src/main/java/vandy/mooc/operations/AcronymOps.java
+* app/src/main/java/vandy/mooc/operations/AcronymOpsImpl.java
+* app/src/main/java/vandy/mooc/services/
+* app/src/main/java/vandy/mooc/services/AcronymServiceAsync.java
+* app/src/main/java/vandy/mooc/services/AcronymServiceSync.java
+* app/src/main/java/vandy/mooc/services/LifecycleLoggingService.java
+* app/src/main/java/vandy/mooc/utils/
+* app/src/main/java/vandy/mooc/utils/AcronymDataArrayAdapter.java
+* app/src/main/java/vandy/mooc/utils/GenericServiceConnection.java
+* app/src/main/java/vandy/mooc/utils/RetainedFragmentManager.java
+* app/src/main/java/vandy/mooc/utils/Utils.java
+* app/src/main/res/
+* app/src/main/res/layout/
+* app/src/main/res/layout/acronym_data_row.xml
+* app/src/main/res/layout/main_activity.xml
+* app/src/main/res/raw/
+* app/src/main/res/raw/dougs.jpg
+* app/src/main/res/values/
+* app/src/main/res/values/dimens.xml
+* app/src/main/res/values/strings.xml
+* app/src/main/res/values/styles.xml
+* build.gradle
+* gradle/
+* gradle/wrapper/
+* gradle/wrapper/gradle-wrapper.jar
+* gradle/wrapper/gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* settings.gradle
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+* src/vandy/mooc/aidl/AcronymCall.aidl => app/src/main/aidl/vandy/mooc/aidl/AcronymCall.aidl
+* src/vandy/mooc/aidl/AcronymData.aidl => app/src/main/aidl/vandy/mooc/aidl/AcronymData.aidl
+* src/vandy/mooc/aidl/AcronymRequest.aidl => app/src/main/aidl/vandy/mooc/aidl/AcronymRequest.aidl
+* src/vandy/mooc/aidl/AcronymResults.aidl => app/src/main/aidl/vandy/mooc/aidl/AcronymResults.aidl
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
