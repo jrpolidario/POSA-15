@@ -34,7 +34,7 @@ public class Utils {
      * URL to the Weather web service.
      */
     private final static String sWeather_Web_Service_URL =
-            "http://api.openweathermap.org/data/2.5/weather?q=";
+            "http://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
     /**
      * Obtain the Weather information.
